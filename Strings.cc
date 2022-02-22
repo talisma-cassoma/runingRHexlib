@@ -19,7 +19,7 @@ static const char* mystrdup( const char* in_string )
 }
 
 Strings(int in_count):count(in_count){
-  if((array = new const char*[in_count])=NULL){
+  if((array = new const char*[in_count]) == NULL){
     MMFatalError("Strings::Strings",
             "new could not allocate enough memory");
   }
