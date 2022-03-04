@@ -1,19 +1,24 @@
+/*
 
-#ifndef _STRINGS_HH
-#define _STRINGS_HH
+The strings type is a C++ struct holding an array of a known 
+number of char *s. If y is of type strings then y.count is 
+the number of elements in the array and y.s[0] through 
+y.s[count-1] are the elements of the array.
 
-#include <stdio.h>
+*/
+#ifndef STRINGS_H
+#define STRINGS_H   
+
+#include <iostream>
 
 class Strings{
 public:
-  Strings(int in_count);
-  Strings( const char** in_array, int size );
-  int getCount(void){return count;} 
-  const char* get(int index);
-
+  Strings(int size );
+  void printChar(int pos);
 private:
+  const char ** array;
   int count;
-  const char** array; 
+  
 };
 
 #endif

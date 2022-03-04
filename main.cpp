@@ -1,25 +1,20 @@
-#include <iostream>
-#include <stdio.h>
-#include "Strings.hh"
+/******************************************************************************
 
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+#include "Strings.hh"
+#include "MM.hh"
 using namespace std;
 
-int main(void){
+int main()
+{
+    Strings texto(5);
+    texto.printChar(2);
 
-const char** Tableau = new const char* [3];
-Tableau[0]= "ola";
-Tableau[1]= "como te chamas";
-Tableau[2]= "chamo-me Talisma";
-
-Strings texto( Tableau, 3);
-const char* nouveau_Tab;
-
-nouveau_Tab = texto.get(3);
-
-cout<<"count: "<<texto.getCount()<<endl;
-for(int i=0; i<3; i++){
-    cout<<nouveau_Tab[2]<<endl;
-}
-
-return 0;
+    return 0;
 }
