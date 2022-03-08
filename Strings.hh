@@ -14,6 +14,7 @@ y.s[count-1] are the elements of the array.
 class Strings{
 public:
   Strings(int size );
+  Strings(const char ** in_array, int size); 
   void printChar(int pos);
 private:
   const char ** array;
