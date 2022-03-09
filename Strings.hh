@@ -22,9 +22,9 @@ public:
   Strings& operator= ( Strings& str ); //transmission par reference
   
   const char* get( int index );      // return string at given index
+  void set(const char* str, int index ); // set string at index
   
   int getCount( void ) const{ return count; }
-  
   const char ** getArray( void ){ return array; }
 
 private:

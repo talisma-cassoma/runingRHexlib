@@ -59,11 +59,11 @@ Strings::~Strings( void ){
     }
     if(array){ delete [] array;}
 } 
-//operator =
+
 Strings& Strings::operator= ( Strings& str ){
     if(this == &str){return *this;}
     
-    this->~Strings(); // I think this way usufull
+    this->~Strings(); // I think this way more usufull
     
     count = str.getCount();
     
@@ -84,4 +84,15 @@ Strings& Strings::operator= ( Strings& str ){
 const char* Strings::get( int index ){
   if( index >= count || index < 0 ){MMFatalError( "Strings::get", "Index is out of range!" );}
   return array[index];
+}
+
+// set function- sets the string at a particular index to s
+void Strings::set( const char* str, int index ){
+  if( index >= count || index < 0 ){
+    MMFatalError( "Strings::set", "Index is out of range!" );
+  }
+  if( array[index] ){ delete[] array[index];}
+  if( (array[index] = memCpy_cpp( str )) == NULL ){
+    MMFatalError( "Strings::set", "mystrdup failed" );
+  }
 }

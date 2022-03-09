@@ -27,6 +27,7 @@ int main()
     palavras = texto;
     
     cout<<palavras.get(0)<<endl;
+    texto.set("youtube", 2);
     cout<<texto.get(2)<<endl;
 
     return 0;
