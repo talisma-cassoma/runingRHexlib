@@ -15,7 +15,18 @@ class Strings{
 public:
   Strings(int size );
   Strings(const char ** in_array, int size); 
-  void printChar(int pos);
+  Strings( void ) : count( 0 ), array( NULL ) {} //   Initialising member variables before the body of the constructor executes
+
+  Strings( Strings& in );            // copy c-tor
+  ~Strings( void );                  // d-tor
+  Strings& operator= ( Strings& str ); //transmission par reference
+  
+  const char* get( int index );      // return string at given index
+  
+  int getCount( void ) const{ return count; }
+  
+  const char ** getArray( void ){ return array; }
+
 private:
   const char ** array;
   int count;
