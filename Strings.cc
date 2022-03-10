@@ -7,7 +7,7 @@
 
 using namespace std;
  
-static char * memCpy_cpp(const char * in_arr){ //
+static char * memCpy(const char * in_arr){ //
     
     size_t length = strlen(in_arr)+1;
     char * cpy= new char[length];
@@ -15,7 +15,6 @@ static char * memCpy_cpp(const char * in_arr){ //
     if(cpy){memcpy(cpy, in_arr, length);} 
     return cpy;
 }
-
 
 Strings::Strings(int size):count(size){
 
@@ -29,7 +28,7 @@ Strings::Strings(const char ** in_array, int size): count(size){
         MMFatalError("Strings::Strings", "new could not allocate enough memory");
     }
     for(int i=0; i< count; i++){
-        if((array[i] = memCpy_cpp(in_array[i])) == NULL){
+        if((array[i] = memCpy(in_array[i])) == NULL){
             MMFatalError("Strings::Strings", "new could not allocate enough memory");
         }
             //cout<<array[i]<<endl; //...debuging  
@@ -44,7 +43,7 @@ Strings::Strings( Strings& str ){
         MMFatalError("Strings::Strings", "new could not allocate enough memory");
     }
     for(int i=0; i< count; i++){
-        if((array[i] = memCpy_cpp(str.get(i) )) == NULL){
+        if((array[i] = memCpy(str.get(i) )) == NULL){
             MMFatalError("Strings::Strings", "new could not allocate enough memory");
         }
            // cout<<array[i]<<endl; //...debuging  
@@ -71,7 +70,7 @@ Strings& Strings::operator= ( Strings& str ){
         MMFatalError("Strings::operator=", "new could not allocate enough memory");
     }
     for(int i=0; i< count; i++){
-        if((array[i] = memCpy_cpp(str.get(i))) == NULL){
+        if((array[i] = memCpy(str.get(i))) == NULL){
             MMFatalError("Strings::operator=", "new could not allocate enough memory");
         }
             //cout<<array[i]<<endl; //...debuging  
@@ -92,7 +91,7 @@ void Strings::set( const char* str, int index ){
     MMFatalError( "Strings::set", "Index is out of range!" );
   }
   if( array[index] ){ delete[] array[index];}
-  if( (array[index] = memCpy_cpp( str )) == NULL ){
+  if( (array[index] = memCpy( str )) == NULL ){
     MMFatalError( "Strings::set", "mystrdup failed" );
   }
 }
