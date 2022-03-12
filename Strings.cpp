@@ -2,8 +2,8 @@
 #include <iostream> //contem as func memset(), memcpy() ... etc
 #include <string.h> // holds strlen() function 
 //---- headers------
-#include "Strings.hh"
-#include "MM.hh"
+#include "Strings.h"
+#include "MM.h"
 
 using namespace std;
  

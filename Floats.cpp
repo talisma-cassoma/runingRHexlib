@@ -1,5 +1,5 @@
-#include "Floats.hh"
-#include "MM.hh"
+#include "Floats.h"
+#include "MM.h"
 
 // implementations for Floats class
 

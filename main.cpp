@@ -2,8 +2,10 @@
 testando RHexlib 
 *******************************************************************************/
 #include <iostream>
-#include "Strings.hh"
-#include "MM.hh"
+#include "Strings.h"
+
+#include "MM.h"
+
 using namespace std;
 
 int main()
@@ -11,7 +13,7 @@ int main()
     const char ** arr = new const char * [3];
     arr[0]= "Talisma";
     arr[1]= "geovna";
-    arr[2]= "Yachne";
+    arr[2]= "Yachane Alexandre";
     
     const char ** arr2 = new const char * [3];
     arr2[0]= "pipoca nanquim";
@@ -27,8 +29,9 @@ int main()
     palavras = texto;
     
     cout<<palavras.get(0)<<endl;
-    texto.set("youtube", 2);
+    texto.set("youtubeKids", 2);
     cout<<texto.get(2)<<endl;
+    
 
     return 0;
 }

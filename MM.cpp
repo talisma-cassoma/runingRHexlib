@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "MM.hh"
+#include "MM.h"
 
 void MMFatalError( const char *fn, const char *msg )  { 
  fprintf ( stderr, "Fatal Error in %s: %s\n", fn, msg );
