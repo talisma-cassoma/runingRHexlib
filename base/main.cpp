@@ -3,6 +3,7 @@ testando RHexlib
 *******************************************************************************/
 #include <iostream>
 #include "Strings.h"
+#include "Floats.h"
 
 #include "MM.h"
 
