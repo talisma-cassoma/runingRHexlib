@@ -1,4 +1,4 @@
-#
+#lets start
 PROJ_NAME=oexecutavel
 
 # headers directory
@@ -54,4 +54,4 @@ clean:
 	rmdir objects
 
 .PHONY: all clean
-
+#fonte de leitura: "introdução ao Makefile" no portal https://www.embarcados.com.br/
