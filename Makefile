@@ -1,12 +1,12 @@
-main : main.o Strings.o MM.o
-	g++ -o main main.o Strings.o MM.o
+Main : main.o Strings.o MM.o
+	g++ -o Main main.o Strings.o MM.o
 
-main.o : main.cpp Strings.h
-	g++ -o main.o main.cpp -c -W -Wall -ansi -pedantic
-Strings.o : Strings.cpp  MM.h Strings.h
-	g++ -o Strings.o Strings.cpp -c -W -Wall -ansi -pedantic
-MM.o	: MM.cpp MM.h
-	g++ -o MM.o MM.cpp -c -W -Wall -ansi -pedantic
+main.o : main.cc Strings.h
+	g++ -o main.o main.cc -c -W -Wall -ansi -pedantic
+Strings.o : Strings.cc  MM.h Strings.h
+	g++ -o Strings.o Strings.cc -c -W -Wall -ansi -pedantic
+MM.o	: MM.cc MM.h
+	g++ -o MM.o MM.cc -c -W -Wall -ansi -pedantic
 
 #elimina todos aquivos .o e os arquivos de backup ~
 clean: 
