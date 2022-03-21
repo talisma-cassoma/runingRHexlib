@@ -2,20 +2,21 @@
 testando RHexlib 
 *******************************************************************************/
 #include <iostream>
-#include "Strings.h"
-#include "Floats.h"
-
-#include "MM.h"
+//#include "Strings.hpp"
+//#include "Floats.hpp"
+#include "SymbolTable.hpp"
 
 using namespace std;
 
 int main()
 {
+    
     const char ** arr = new const char * [3];
     arr[0]= "Talisma";
     arr[1]= "geovna";
     arr[2]= "Yachane Alexandre";
     
+    /*
     const char ** arr2 = new const char * [3];
     arr2[0]= "pipoca nanquim";
     arr2[1]= "rocketseat";
@@ -32,7 +33,15 @@ int main()
     cout<<palavras.get(0)<<endl;
     texto.set("youtubeKids", 2);
     cout<<texto.get(2)<<endl;
-    
+    */
+SymbolTable *table_S= new SymbolTable();//allocate in memory
+Symbol      *simbolo = new Symbol();//allocate in memory
 
-    return 0;
+float *f = new float[4]; for(int i=0; i<3; i++){f[i]=i*rand();}
+
+simbolo->setFarray(f,4);
+simbolo=table_S->putFloat("tres", 4.2); for(int i=0; i<4; i++) cout<<"simbolo: "<<simbolo->getFvalue(i)<<endl;
+
+return 0;
 }
+

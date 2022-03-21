@@ -1,5 +1,5 @@
-#include "Floats.h"
-#include "MM.h"
+#include "Floats.hpp"
+#include "MM.hpp"
 
 // implementations for Floats class
 
@@ -11,7 +11,7 @@ Floats::Floats( int in_count ) : count( in_count ){
 
 
 // c-tor with array of floats as parameter
-Floats::Floats( float* in_array, int size ) : count( size ){
+Floats::Floats( float *in_array, int size ) : count( size ){
   int i;
   
   if( ( array = new float[ size ] ) == NULL )

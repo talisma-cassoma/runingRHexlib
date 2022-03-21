@@ -1,7 +1,12 @@
 # runingRhexlib
 
-porque criar classe costumizadas visto que elas ja vem nativamente na libs padrao
+a class Tokenizer
 
-as classes Strings e Floats sao classes que manipulam arrays de strinngs e floats, respectivamente. Usar classes costumizadas permite evitar erros de depreciacao e/ou conversao, permite personilizar e atender necessidade especificas do software  
-    por exemplo tipo Strings é um array que contem outros array de strings 
-     ela contem metodos genericos para manipular(get, copy, overload, delete, set) as strings, o mesmo para o tipo Floats
+### O que são tokens em C ? 
+
+Na linguagem C, Tokens são todas palavras reservada que compõem a linguagem de programação
+Ex:  return, int, float, goto, for, while…    
+
+### para que serve a class Tokenizer?
+ 
+

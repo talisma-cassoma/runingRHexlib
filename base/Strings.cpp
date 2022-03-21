@@ -1,9 +1,9 @@
 //-----standard c/c++---
-#include <iostream> //contem as func memset(), memcpy() ... etc
+#include <iostream> //here lives the func memset(), memcpy() ... etc
 #include <string.h> // holds strlen() function 
 //---- headers------
-#include "Strings.h"
-#include "MM.h"
+#include "Strings.hpp"
+#include "MM.hpp"
 
 using namespace std;
  
@@ -15,7 +15,6 @@ static char * memCpy(const char * in_arr){ //
     if(cpy){memcpy(cpy, in_arr, length);} 
     return cpy;
 }
-
 Strings::Strings(int size):count(size){
 
      if((array = new const char * [count]) == NULL){
@@ -80,13 +79,13 @@ Strings& Strings::operator= ( Strings& str ){
 }
 
 // get function- gets the string at particular index
-const char* Strings::get( int index ){
+const char * Strings::get( int index ){
   if( index >= count || index < 0 ){MMFatalError( "Strings::get", "Index is out of range!" );}
   return array[index];
 }
 
 // set function- sets the string at a particular index to s
-void Strings::set( const char* str, int index ){
+void Strings::set( const char * str, int index ){
   if( index >= count || index < 0 ){
     MMFatalError( "Strings::set", "Index is out of range!" );
   }

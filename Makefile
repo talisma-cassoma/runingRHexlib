@@ -7,8 +7,8 @@ HEADERS_DIR = include
 #get all .c files from proj dir
 CPP_SOURCE=$(wildcard ./base/*.cpp)
 
-#get all .h files from proj dir 
-H_SOURCE=$(wildcard ./include/*.h)
+#get all .hpp files from proj dir 
+H_SOURCE=$(wildcard ./include/*.hpp)
 
 #get all objects files 
 OBJ=$(subst .cpp,.o,$(subst base,objects,$(CPP_SOURCE)))
@@ -39,7 +39,7 @@ $(PROJ_NAME): $(OBJ)
 	@ echo 'Finished building binary: $@'
 	@ echo ' ' 
 
-./objects/%.o: ./base/%.cpp ./include/%.h	
+./objects/%.o: ./base/%.cpp ./include/%.hpp	
 	@ echo 'Building target using GCC compiler: $<'
 	$(CC) $< $(CC_FLAGS) -o $@
 
@@ -50,7 +50,7 @@ objectsDir:
 	@ mkdir -p objects
 
 clean: 
-	$(RM) ./objects/*.o
+	$(RM) ./objects/*.o *~ $(PROJ_NAME)
 	rmdir objects
 
 .PHONY: all clean
