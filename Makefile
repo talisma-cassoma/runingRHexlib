@@ -1,5 +1,5 @@
 #lets start
-PROJ_NAME=oexecutavel
+PROJ_NAME=letsRun_
 
 # headers directory
 HEADERS_DIR = include
@@ -44,6 +44,9 @@ $(PROJ_NAME): $(OBJ)
 	$(CC) $< $(CC_FLAGS) -o $@
 
 ./objects/main.o: ./base/main.cpp $(H_SOURCE)
+	$(CC) $< $(CC_FLAGS) -o $@
+
+./objects/Module.o: ./base/Module.cpp $(H_SOURCE)
 	$(CC) $< $(CC_FLAGS) -o $@
 
 objectsDir:

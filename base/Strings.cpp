@@ -3,7 +3,7 @@
 #include <string.h> // holds strlen() function 
 //---- headers------
 #include "Strings.hpp"
-#include "MM.hpp"
+#include "ModuleManager.hpp"
 
 using namespace std;
  

@@ -1,6 +1,6 @@
 /************************************************************************
 * Created       : Laura McWilliams, 06/29/2001
-* Last Modified : Talisma Mnauel
+* Last Modified : Talisma Manuel
 * Note: The floats type is a C++ struct holding an array of a known 
 *       number of floats. If x is of type floats then x.count is the 
 *       number of elements in the array and x.f[0] through x.f[count-1] 
@@ -14,8 +14,8 @@
 ************************************************************************/
 #include <stdio.h>
 
-#ifndef _FLOATS_HH
-#define _FLOATS_HH
+#ifndef _FLOATS_HPP
+#define _FLOATS_HPP
 
 
 class Floats {

@@ -1,10 +1,11 @@
 #include <cstring> //here lives the func strcpy(), 
 #include <string.h> //here lives the func strcmp()
 
-#include "MM.hpp"
+#include "ModuleManager.hpp"
 #include "Strings.hpp"
 #include "Floats.hpp"
 #include "SymbolTable.hpp"
+//#include "Tokenizer.hpp"
 
 static char * memCpy(const char * in_arr){ //
     
@@ -14,7 +15,7 @@ static char * memCpy(const char * in_arr){ //
     if(cpy){memcpy(cpy, in_arr, length);} 
     return cpy;
 }
-// Symbol::Symbol : Class constructor
+// Symbol Class constructor
 Symbol::Symbol(void) {
 
   name[0] = 0;
@@ -24,13 +25,13 @@ Symbol::Symbol(void) {
   Fvalue  = new Floats;
   Svalue  = new Strings;
 }
-
+// Symbol Class d-tor
 Symbol::~Symbol( ) {
 
   delete Fvalue;
   delete Svalue;
 }
-
+// Symbol overload =
 Symbol &Symbol::operator=( Symbol &rhs ) {
 
   if( this == &rhs ) return *this; // prevent self-assignment
@@ -68,7 +69,7 @@ void Symbol::setSarray( const char **s, int count ) {
   type   = SYMBOL_STRING;
 }
 
-// SymbolTable::SymbolTable : Class constructor
+// SymbolTable Class constructor
 SymbolTable::SymbolTable(void){
 
   numSymbols = 0;
@@ -90,7 +91,7 @@ SymbolTable::~SymbolTable(){
  first = NULL;
  last  = NULL;
 }
-// seaches for a named Symbol
+// searches for a named Symbol
  Symbol *SymbolTable::get( const char *name){
 
    Symbol *curSymbol;
@@ -189,15 +190,16 @@ void SymbolTable::readString(const char * name, char * str, const char * deflt) 
 
 // Reads a string array parameter. If not found, returns an 
 // empty strings struct.
-Strings SymbolTable::readStrArray( const char *name ) {
+Strings &SymbolTable::readStrArray( const char *name ){
 
   Symbol *sym;
-  Strings deflt;
+  static Strings deflt;
 
-  if ( ( sym = get( name ) ) != NULL && sym->getType() == SYMBOL_STRING )
+  if ( ( sym = get( name ) ) != NULL && sym->getType() == SYMBOL_STRING ){
     return sym->getSarray();
-  else
+  }else{ 
     return deflt;
+  }
 }
 
 // Prints the current symbols and their values to stdout. 

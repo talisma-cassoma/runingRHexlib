@@ -1,6 +1,6 @@
 /************************************************************************
 * Created       : Uluc Saranli, 01/05/2001
-* Last Modified : Talisma Mnauel
+* Last Modified : Talisma Manuel
 * Note: The types vast and uvast are 64 bit signed and unsigned integer 
 *       types respectively. In some platforms, these data types are 
 *       implemented through C++ classes and may not provide all the 
@@ -13,8 +13,8 @@
 * free software under the following license.
 ************************************************************************/
 
-#ifndef _VAST_HH
-#define _VAST_HH
+#ifndef _VAST_HPP
+#define _VAST_HPP
 
 // LINUX definitions 
 

@@ -1,6 +1,6 @@
 /************************************************************************
 * Created       : Uluc Saranli, 11/16/2000
-* Last Modified : Talisma Mnauel
+* Last Modified : Talisma Manuel
 * Note: The strings type is a C++ struct holding an array of a known 
 *       number of char *s. If y is of type strings then y.count is 
 *       the number of elements in the array and y.s[0] through 
@@ -13,8 +13,8 @@
 * free software under the following license.
 ************************************************************************/
 
-#ifndef STRINGS_H
-#define STRINGS_H   
+#ifndef STRINGS_HPP
+#define STRINGS_HPP   
 
 #include <iostream> //here lives the func memcpy() ... 
 

@@ -1,7 +1,7 @@
 #include <ctype.h> //contem isdigit(), isspace() e isalpha()
 #include "Tokenizer.hpp"
 
-Tokenizer::Tokenizer(){
+Tokenizer::Tokenizer(void){
 
     inputType = TOKEN_INPUT_UNKNOWN;
     inputFile = NULL;
@@ -19,11 +19,11 @@ Tokenizer::~Tokenizer(void){
 int Tokenizer::open(int type, const char *file_or_str ){
     
     if(type==TOKEN_INPUT_FILE){//se o tipo for do tipo FILE
-        //retornar um error se 
+        //retornar um error se nao conseguir abrir a file
         if((inputFile = fopen( file_or_str, "r"))==NULL){
             return TOKENIZER_ERROR;
         }
-        //se tiver o ficheiro ou string entao 
+        //se tiver o ficheiro entao: 
         inputType = TOKEN_INPUT_FILE;
     }else if(type == TOKEN_INPUT_STRING){//se o tipo for do tipo STRING
     

@@ -1,6 +1,6 @@
 /************************************************************************
 * Created       : Uluc Saranli, 11/16/2000
-* Last Modified : Talisma Mnauel
+* Last Modified : Talisma Manuel
 * Note: basic data types used in RHexLib
 *************************************************************************
 * This file is part of RHexLib, 
@@ -10,8 +10,8 @@
 * free software under the following license.
 ************************************************************************/
 
-#ifndef _TYPES_HH
-#define _TYPES_HH
+#ifndef TYPES_HPP
+#define TYPES_HPP
 
 // Local includes
 #include "vast.hpp" // Defines a 64 bit integer data type 
@@ -41,7 +41,7 @@ typedef int int32;
 typedef unsigned int uint32;
 typedef vast int64;
 typedef uvast uint64;
-//typedef unsigned int uint;  //desnecessario 
+typedef unsigned int uint;  //desnecessario 
 
 // The CLOCK datatype. Holds the clock value in us.
 typedef int64 CLOCK;

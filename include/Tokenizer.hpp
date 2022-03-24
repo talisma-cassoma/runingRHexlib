@@ -1,8 +1,10 @@
 /************************************************************************
 * Created       : Uluc Saranli, 12/17/1998
-* Last Modified : Talisma Mnauel
-* Note: 
-*
+* Last Modified : Talisma Manuel
+* 
+* Note: the Tokenizer parse an input stream(strings or floats values) 
+*       into to a stream of tokens, which are then interpreted by a 
+*       higher level parser.
 *************************************************************************
 * This file is part of RHexLib, 
 *
@@ -16,7 +18,7 @@
 
 // Standard includes
 #include <stdio.h>
-#include "MM.hpp"
+
 // Constants -------------------------------------------------------
 
 #define MAX_TOKEN_LENGTH        128
@@ -28,7 +30,7 @@
 
 // Token type definitions
 #define TOKEN_INVALID   0
-#define TOKEN_EOF       1  // end-of-input 
+#define TOKEN_EOF       1
 #define TOKEN_INTEGER   2
 #define TOKEN_FLOAT     3
 #define TOKEN_STRING    4
@@ -52,42 +54,45 @@ typedef struct {
   char  svalue[MAX_TOKEN_LENGTH];
 } Token;
 
-// The Tokenizer class 
+// The Tokenizer class ---------------------------------------------
 class Tokenizer {
 
  public:
   Tokenizer( void );
   ~Tokenizer( );
 
-  int  open( int type, const char *file_or_str );
-  int  get( Token *token );
-  int  eoi( void ); // aka end of input :)
+  int open( int type, const char *file_or_str );
+  int get( Token *token );
   void close( void );
+  int eoi( void );
   
  private:
-  int         inputType;
+  int        inputType;
 
+  FILE*      inputFile;
   const char *inputStr;
-  FILE*       inputFile;
-  char        lastChar;
-  int         strPtr;
+  int        strPtr;
 
-  int  end_of_input( void );
-  //g!b,k( void );
-  int  skip_whitespace( void );
-  int  get_number_token( Token *token );
-  int  get_symbol_token( Token *token );
-  int  get_string_token( Token *token );
-  int  get_next_char( void );
+  char       lastChar;
+
+  int end_of_input( void );
+  int get_next_char( void );
+  int skip_whitespace( void );
+  int get_number_token( Token *token );
+  int get_symbol_token( Token *token );
+  int get_string_token( Token *token );
   void skip_line( void );
 
 };
 
-#define EXPECT_TOKEN(T_IN, TYPE_IN, TOKEN_IN) \
-(T_IN).get(TOKEN_IN);  \
-  if(((TOKEN_IN)->type)!=(TYPE_IN)) \
-  { fprintf ( stderr, "Fatal Error in EXPECT_TOKEN macro: Parse error, invalid token. Aborting!"); \
-  return 0;} \
+#define EXPECT_TOKEN( T_IN, TYPE_IN, TOKEN_IN )           \
+  ( T_IN ).get( ( TOKEN_IN ) );                           \
+  if ( ( TOKEN_IN )->type != ( TYPE_IN ) ) {              \
+    MMWarning( "EXPECT_TOKEN macro",                      \
+               "Parse error, invalid token. Aborting!" ); \
+    return false;                                         \
+  }
 
 #define GET_TOKEN(T_IN, TOKEN_IN) (T_IN).get(TOKEN_IN)
+
 #endif

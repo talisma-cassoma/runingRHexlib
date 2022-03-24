@@ -1,7 +1,8 @@
 /************************************************************************
 * Created       : Uluc Saranli, 12/17/1998
-* Last Modified : Talisma Mnauel
-* Note: 
+* Last Modified : Talisma  Manuel
+* Note: the symboltable class holds all symbol, thoses symbol that can have 
+*       weither string or real number values.
 *
 *************************************************************************
 * This file is part of RHexLib, 
@@ -11,8 +12,8 @@
 * free software under the following license.
 ************************************************************************/
 
-#ifndef _SYMBOLTABLE_HH
-#define _SYMBOLTABLE_HH
+#ifndef SYMBOLTABLE_HPP
+#define SYMBOLTABLE_HPP
 
 #include "Strings.hpp"
 #include "Floats.hpp"
@@ -33,7 +34,7 @@ typedef enum{
 
 typedef enum{
   SCRIPT_FILE   = TOKEN_INPUT_FILE,
-  SCRIPT_STRING = TOKEN_INPUT_STRING,
+  SCRIPT_STRING = TOKEN_INPUT_STRING
 } ScriptType; 
 
 // Symbols class ---
@@ -64,7 +65,7 @@ class Symbol{
 
     Floats       getFarray( void ){ return *Fvalue;}
     float        getFvalue( unsigned int index){ return Fvalue->get(index); }
-    Strings     &getSarray( void ){ return *Svalue; } //retornar a ref do objeto? é szguro?
+    Strings     &getSarray( void ){ return *Svalue; } //retornar a ref do objeto? é seguro?
     const char  *getSvalue( unsigned int index ){ return Svalue->get(index); }
 };
 
@@ -85,10 +86,11 @@ public:
   float   readFloat(const char *name, float deflt);
   Floats  readArray(const char *name);
   void    readString(const char *name, char *str, const char *deflt);
-  Strings readStrArray(const char *name);
+  Strings &readStrArray(const char *name);
   void    printSymbols(void);
 
 private:
+
   Symbol *first;
   Symbol *last;
   int     numSymbols;
@@ -99,4 +101,5 @@ private:
   bool parse_value( Symbol *sym);
   bool parse_expression( void );
 };
+
 #endif
