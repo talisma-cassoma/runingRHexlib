@@ -1,27 +1,26 @@
 #ifndef ModuleManager_HPP
 #define ModuleManager_HPP
 
-
 #include "types.hpp"
 //#include "Strings.hpp"
 #include "Hardware.hpp"
 #include "SymbolTable.hpp"
 //#include <stdio.h>
 //#include <stdlib.h>
-#include <stddef.h>
+//#include <stddef.h>
 //#include <malloc.h>
 
 //#include <unistd.h>
 //#include <time.h>
 
-#ifdef _QNX4_
+/*#ifdef _QNX4_
 #include <process.h>
 #include <sys/proxy.h>
 #include <sys/kernel.h>
 #include <sys/sched.h>
 #include <signal.h>
 #include <semaphore.h>
-#endif
+#endif*/
 
 // Module specific constants ----
 #define  SINGLE_USER     true   // Module ownership states

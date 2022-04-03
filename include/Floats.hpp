@@ -14,8 +14,8 @@
 ************************************************************************/
 #include <stdio.h>
 
-#ifndef _FLOATS_HPP
-#define _FLOATS_HPP
+#ifndef FLOATS_HPP
+#define FLOATS_HPP
 
 
 class Floats {

@@ -13,8 +13,8 @@
 * free software under the following license.
 ************************************************************************/
 
-#ifndef _VAST_HPP
-#define _VAST_HPP
+#ifndef VAST_HPP
+#define VAST_HPP
 
 // LINUX definitions 
 

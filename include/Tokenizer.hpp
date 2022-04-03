@@ -13,8 +13,8 @@
 * free software under the following license.
 ************************************************************************/
 
-#ifndef _TOKENIZER_HH
-#define _TOKENIZER_HH
+#ifndef TOKENIZER_HPP
+#define TOKENIZER_HPP
 
 // Standard includes
 #include <stdio.h>

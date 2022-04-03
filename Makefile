@@ -30,6 +30,9 @@ RM =rm -rf
 
 #--COMPILATION and LINKING STEPS--
 
+#complile hardware first 
+#include ./hardware/HWmakefile.mk
+
 all: objectsDir $(PROJ_NAME)
 
 #exec traget 
@@ -47,6 +50,9 @@ $(PROJ_NAME): $(OBJ)
 	$(CC) $< $(CC_FLAGS) -o $@
 
 ./objects/Module.o: ./base/Module.cpp $(H_SOURCE)
+	$(CC) $< $(CC_FLAGS) -o $@
+
+./objects/SimMotor.o: ./base/SimMotor.cpp $(H_SOURCE)
 	$(CC) $< $(CC_FLAGS) -o $@
 
 objectsDir:
