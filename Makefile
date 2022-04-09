@@ -1,66 +1,21 @@
-#lets start
-PROJ_NAME=letsRun_
+##teste 
 
-# headers directory
-HEADERS_DIR = include
+LIBS = base/libbase.a 
 
-#get all .c files from proj dir
-CPP_SOURCE=$(wildcard ./base/*.cpp)
+include tools/tooldefs.mk ./tools/flagdefs.mk
 
-#get all .hpp files from proj dir 
-H_SOURCE=$(wildcard ./include/*.hpp)
+### Standard targets.
+all: libs clean
 
-#get all objects files 
-OBJ=$(subst .cpp,.o,$(subst base,objects,$(CPP_SOURCE)))
+libs: $(LIBS)
 
-#decide compiler and linker 
-CC=g++
+$(LIBS): FORCE
+	@$(ECHO)
+	@$(CD) $(@D) ; $(MAKE) $(@F)
+	@$(LN) ../$(@) lib 
 
-# warning flags just in case of error 
+FORCE:
+clean:
+	$(RM) -rf ./*/*.o ./*/*~ ./*/*.err
 
-CC_FLAGS=-c       \
-         -W       \
-		 -Wall    \
-		 -ansi    \
-		 -pedantic \
-		 -I$(HEADERS_DIR) # tells the compiler where headers live (i.e. in the "include" directory).
-
-# cmd for clean target 
-RM =rm -rf
-
-#--COMPILATION and LINKING STEPS--
-
-#complile hardware first 
-#include ./hardware/HWmakefile.mk
-
-all: objectsDir $(PROJ_NAME)
-
-#exec traget 
-$(PROJ_NAME): $(OBJ) 
-	@ echo 'Building binary using GCC linker: $@'
-	$(CC) $^ -o $@
-	@ echo 'Finished building binary: $@'
-	@ echo ' ' 
-
-./objects/%.o: ./base/%.cpp ./include/%.hpp	
-	@ echo 'Building target using GCC compiler: $<'
-	$(CC) $< $(CC_FLAGS) -o $@
-
-./objects/main.o: ./base/main.cpp $(H_SOURCE)
-	$(CC) $< $(CC_FLAGS) -o $@
-
-./objects/Module.o: ./base/Module.cpp $(H_SOURCE)
-	$(CC) $< $(CC_FLAGS) -o $@
-
-./objects/SimMotor.o: ./base/SimMotor.cpp $(H_SOURCE)
-	$(CC) $< $(CC_FLAGS) -o $@
-
-objectsDir:
-	@ mkdir -p objects
-
-clean: 
-	$(RM) ./objects/*.o *~ $(PROJ_NAME)
-	rmdir objects
-
-.PHONY: all clean
-#fonte de leitura: "introdução ao Makefile" no portal https://www.embarcados.com.br/
+.PHONY: all clean 
