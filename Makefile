@@ -1,21 +1,39 @@
 ##teste 
+BINDIR = examples #examples/quickstart examples/esp examples/exprunner
 
 LIBS = base/libbase.a 
+
+HWLIBS = hardware/virtual/libvirtualhw.a \
+	hardware/common/libcommonhw.a \
+	hardware/SimSect/libsimsecthw.a
+
+OBJECTS = $(SOURCES:.cpp=.o)
+EXECOBJ = $(patsubst %,%.o,$(EXEC))
+DEPLIBS = $(patsubst %,$(RHEX_DIR)/lib/%,$(LIBS)) $(AUXLIBS)
+AUXLIBFILES = $(notdir $(AUXLIBS))
+LINKLIBS = $(patsubst lib%.a,-l%,$(LIBS)) $(patsubst lib%.a,-l%,$(AUXLIBFILES))
 
 include tools/tooldefs.mk ./tools/flagdefs.mk
 
 ### Standard targets.
-all: libs clean
+ 
+main: main.o base/libbase.a 
+	g++ -o $@ $@.o $(LINKLIBS) $(LDFLAGS) $(LDLIBS) 
 
-libs: $(LIBS)
+main.o: examples/main.cpp
+	g++ -o $@ -c $< $(CXXFLAGS)
 
-$(LIBS): FORCE
-	@$(ECHO)
-	@$(CD) $(@D) ; $(MAKE) $(@F)
-	@$(LN) ../$(@) lib 
+#libs: $(LIBS) $(HWLIBS)
+#
+#$(LIBS) : FORCE
+#	@$(ECHO)
+#	@$(CD) $(@D) ; $(MAKE) $(@F)
+#	@$(LN) ../$(@) lib 
+ 
 
-FORCE:
+#FORCE:
 clean:
 	$(RM) -rf ./*/*.o ./*/*~ ./*/*.err
 
-.PHONY: all clean 
+.PHONY: main clean
+

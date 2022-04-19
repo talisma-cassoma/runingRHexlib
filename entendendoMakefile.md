@@ -33,8 +33,21 @@ A parte do arquivo dentro do diretório do nome do arquivo de destino. Se o valo
 `wc` 
 counts the number of lines in each of the source files, headers
 
-`$?`
-is used to find the return value of the last executed command. Try the following in the shell:
-
 `$$`
 Make precisa distinguir se você quer usar um `"$"` como introdução de uma referência de variável make, como `"${FOOBAR}"` ou como um `"$"`simples passado para o shell. A especificação make (Section Macros) diz que para fazer o último, você deve usar `"$$"` que é substituído por um único `"$"` e passado para o shell.
+
+`$@` 
+nome do target
+
+`$<` 
+nome da primeira dependencia
+
+`$^` 
+lista das dependencias
+
+`$?` 
+lista das dependencias adicionadas apos recompilar
+
+`$*` 
+nome do ficheiro sem o directorio
+

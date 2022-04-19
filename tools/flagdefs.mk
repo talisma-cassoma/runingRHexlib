@@ -8,9 +8,9 @@ ifeq ($(UNAME), Darwin)
 
 INC = -I../include $(AUXFLAGS) $(DEFINES) 
 
-CXXFLAGS = -Wall -g -I../include   $(DEFINES) $(AUXFLAGS)
+CXXFLAGS = -Wall -g -Iinclude $(DEFINES) $(AUXFLAGS)
 
-LDFLAGS  = -L/lib $(AUXFLAGS)
+LDFLAGS  = -L./ $(AUXFLAGS) # -L. is used to tell that the static library is in current folder 
 LDLIBS   = -lm
 
 endif
